@@ -15,41 +15,30 @@ public class Cashier {
         double bill = 0, change;
         final double TAX_RATE = 0.06;
 
-        do { 
-            System.out.print("Welcome to JavaMart! \n please enter the price of your item: ");
+        System.out.println("Welcome to JavaMart!");
+
+        do {
+            System.out.print("Enter the price of each item: $");
             price = scan.nextDouble();
             total += price;
         } while (price != 0.0);
 
-        System.out.println("Your total amount before tax is: " + df.format(total));
+        System.out.println("Your total amount before tax is: $" + df.format(total));
 
         double totalCost = (total * TAX_RATE) + total;
-        System.out.println("Your total amount after tax is: " + df.format(totalCost));
+        System.out.println("Your total amount after tax is: $" + df.format(totalCost));
 
-        System.out.print("Please enter your bill amount: ");
+        System.out.print("Please enter your bill amount: $");
         bill = scan.nextDouble();
 
         while (bill < total) {
-            System.out.print("Enter another bill amount: ");
+            System.out.print("Enter another bill amount: $");
             bill += scan.nextDouble();
         }
 
         change = bill - totalCost;
-        System.out.println("Your change is: " + df.format(change));
-        
-        // if (bill < total) {
-        //     double remainingBalance = totalCost - bill;
-        //     System.out.print("You still have a balance of: " + df.format(remainingBalance) + 
-        //                     "\n Please enter another bill: ");
-        //     double bill2 = scan.nextDouble();
-        //     change = bill2 - remainingBalance;
-        //     System.out.println("Your change is: " + df.format(change) + " Payment received!");
-        // } else {
-        //     System.out.println("Payment received!");
-
-        //     change = bill - totalCost;
-        //     System.out.println("Your change is: " + df.format(change));
-        // }
+        System.out.println("Your change is: $" + df.format(change));
+        System.out.println("Thank you for shopping at JavaMart!");
         scan.close();
     }
 }
